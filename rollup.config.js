@@ -16,7 +16,7 @@ export default {
   entry,
   dest: 'bundle/social-share.umd.js',
   format: 'umd',
-  moduleName: 'social-share',
+  moduleName: 'SocialShare',
   context: 'this',
   plugins: [
     node(),
