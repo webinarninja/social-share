@@ -1,0 +1,37 @@
+{
+  "name": "social-share",
+  "description": "Social Share",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "bundle/social-share.umd.js",
+  "module": "social-share.js",
+  "typings": "social-share.d.ts",
+  "author": "ealisyonok@gmail.com",
+  "scripts": {
+    "clean": "./scripts/clean.sh",
+    "dev": "NODE_ENV=development rollup -c --watch",
+    "build": "NODE_ENV=production rollup -c",
+    "lint": "tslint \"src/**/*.ts\""
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "social",
+    "share",
+    "file"
+  ],
+  "devDependencies": {
+    "@types/core-js": "^0.9.35",
+    "@types/node": "^7.0.5",
+    "reflect-metadata": "^0.1.9",
+    "rollup": "^0.42.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-plugin-typescript2": "^0.4.3",
+    "rollup-watch": "^3.2.2",
+    "tslint": "^5.4.3",
+    "typescript": "2.3.4"
+  }
+}
