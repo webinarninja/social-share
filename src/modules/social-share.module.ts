@@ -6,20 +6,19 @@ export interface Link {
 }
 
 export class SocialShare {
-  constructor() {
-  }
+  constructor() {}
 
-  generateSocialLinks(services: SupportedSocialServices, url: string): Link {
+  generateSocialLinks(services: SupportedSocialServices, url: string, text: string): Link {
     const links: Link = {};
 
-    services.forEach((service) => {
-      links[service] = this.createSocial(service, url);
+    services.forEach(service => {
+      links[service] = this.createSocial(service, url, text);
     });
 
     return links;
   }
 
-  openPopup(e: MouseEvent, dimensions: { width: number, height: number }) {
+  openPopup(e: MouseEvent, dimensions: { width: number; height: number }) {
     const target = <HTMLAnchorElement>e.target;
     const width = dimensions.width || 500;
     const height = dimensions.height || 500;
@@ -27,10 +26,19 @@ export class SocialShare {
     const left = Math.floor(((screen.availWidth || 1024) - width) / 2);
     const top = Math.floor(((screen.availHeight || 700) - height) / 2);
 
-    const popup = window.open(target.href, 'social',
-      'width=' + width + ',height=' + height +
-      ',left=' + left + ',top=' + top +
-      ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
+    const popup = window.open(
+      target.href,
+      'social',
+      'width=' +
+        width +
+        ',height=' +
+        height +
+        ',left=' +
+        left +
+        ',top=' +
+        top +
+        ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1',
+    );
 
     if (popup) {
       popup.focus();
@@ -44,12 +52,12 @@ export class SocialShare {
     return !!popup;
   }
 
-  private createSocial(service: SupportedSocialService, url: string) {
+  private createSocial(service: SupportedSocialService, url: string, text = 'I’m hosting a webinar!') {
     let link: string = '';
 
     switch (service) {
       case 'twitter':
-        link = `https://twitter.com/home?status=${url}`;
+        link = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + text;
         break;
       case 'facebook':
         link = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
@@ -64,7 +72,7 @@ export class SocialShare {
         link = `https://plus.google.com/share?url=${url}`;
         break;
       default:
-        link = 'isn\'t supported';
+        link = "isn't supported";
         break;
     }
 

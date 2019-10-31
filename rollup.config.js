@@ -6,10 +6,10 @@ import replace from 'rollup-plugin-replace';
 
 let pkg = JSON.parse(readFileSync(path.resolve(__dirname, 'package.json')));
 
-let entry = 'src/social-share.js';
+let entry = 'src/social-share.ts';
 
 if (process.env.NODE_ENV === 'development') {
-  entry = 'src/social-share.test.js'
+  entry = 'src/social-share.test.ts'
 }
 
 export default {

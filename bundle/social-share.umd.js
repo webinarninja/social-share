@@ -7,11 +7,11 @@
 var SocialShare = (function () {
     function SocialShare() {
     }
-    SocialShare.prototype.generateSocialLinks = function (services, url) {
+    SocialShare.prototype.generateSocialLinks = function (services, url, text) {
         var _this = this;
         var links = {};
         services.forEach(function (service) {
-            links[service] = _this.createSocial(service, url);
+            links[service] = _this.createSocial(service, url, text);
         });
         return links;
     };
@@ -21,8 +21,14 @@ var SocialShare = (function () {
         var height = dimensions.height || 500;
         var left = Math.floor(((screen.availWidth || 1024) - width) / 2);
         var top = Math.floor(((screen.availHeight || 700) - height) / 2);
-        var popup = window.open(target.href, 'social', 'width=' + width + ',height=' + height +
-            ',left=' + left + ',top=' + top +
+        var popup = window.open(target.href, 'social', 'width=' +
+            width +
+            ',height=' +
+            height +
+            ',left=' +
+            left +
+            ',top=' +
+            top +
             ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
         if (popup) {
             popup.focus();
@@ -33,11 +39,12 @@ var SocialShare = (function () {
         }
         return !!popup;
     };
-    SocialShare.prototype.createSocial = function (service, url) {
+    SocialShare.prototype.createSocial = function (service, url, text) {
+        if (text === void 0) { text = 'I’m hosting a webinar!'; }
         var link = '';
         switch (service) {
             case 'twitter':
-                link = "https://twitter.com/home?status=" + url;
+                link = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + text;
                 break;
             case 'facebook':
                 link = "https://www.facebook.com/sharer/sharer.php?u=" + url;
@@ -52,7 +59,7 @@ var SocialShare = (function () {
                 link = "https://plus.google.com/share?url=" + url;
                 break;
             default:
-                link = 'isn\'t supported';
+                link = "isn't supported";
                 break;
         }
         return link;
