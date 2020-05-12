@@ -42,21 +42,22 @@ var SocialShare = (function () {
     SocialShare.prototype.createSocial = function (service, url, text) {
         if (text === void 0) { text = 'I’m hosting a webinar!'; }
         var link = '';
+        var encodedUrl = encodeURIComponent(url);
         switch (service) {
             case 'twitter':
-                link = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + text;
+                link = "https://twitter.com/intent/tweet?url=" + encodedUrl + "&text=" + text;
                 break;
             case 'facebook':
-                link = "https://www.facebook.com/sharer/sharer.php?u=" + url;
+                link = "https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl;
                 break;
             case 'linkedin':
-                link = "https://www.linkedin.com/shareArticle?mini=true&url=" + url;
+                link = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodedUrl;
                 break;
             case 'pinterest':
-                link = "https://pinterest.com/pin/create/button/?url=" + url;
+                link = "https://pinterest.com/pin/create/button/?url=" + encodedUrl;
                 break;
             case 'google-plus':
-                link = "https://www.linkedin.com/sharing/share-offsite/?url=" + url;
+                link = "https://plus.google.com/share?url=" + encodedUrl;
                 break;
             default:
                 link = "isn't supported";
