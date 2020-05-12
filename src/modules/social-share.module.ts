@@ -69,7 +69,7 @@ export class SocialShare {
         link = `https://pinterest.com/pin/create/button/?url=${url}`;
         break;
       case 'google-plus':
-        link = `https://plus.google.com/share?url=${url}`;
+        link = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
         break;
       default:
         link = "isn't supported";
