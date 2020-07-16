@@ -1,4 +1,4 @@
-export type SupportedSocialService = 'twitter' | 'facebook' | 'linkedin' | 'pinterest' | 'google-plus';
+export type SupportedSocialService = 'twitter' | 'facebook' | 'linkedin' | 'pinterest' | 'google-plus' | 'instagram';
 export type SupportedSocialServices = SupportedSocialService[];
 
 export interface Link {
@@ -71,6 +71,9 @@ export class SocialShare {
         break;
       case 'google-plus':
         link = `https://plus.google.com/share?url=${encodedUrl}`;
+        break;
+      case 'instagram':
+        link = `https://www.instagram.com/direct/new/`;
         break;
       default:
         link = "isn't supported";
