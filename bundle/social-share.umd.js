@@ -59,6 +59,9 @@ var SocialShare = (function () {
             case 'google-plus':
                 link = "https://plus.google.com/share?url=" + encodedUrl;
                 break;
+            case 'instagram':
+                link = "https://www.instagram.com/direct/new/";
+                break;
             default:
                 link = "isn't supported";
                 break;
