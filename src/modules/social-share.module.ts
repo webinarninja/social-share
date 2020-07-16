@@ -73,7 +73,7 @@ export class SocialShare {
         link = `https://plus.google.com/share?url=${encodedUrl}`;
         break;
       case 'instagram':
-        link = `https://www.instagram.com/direct/new/?url=${encodedUrl}`;
+        link = `https://www.instagram.com/direct/new/`;
         break;
       default:
         link = "isn't supported";
