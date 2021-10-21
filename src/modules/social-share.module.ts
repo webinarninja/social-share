@@ -54,23 +54,22 @@ export class SocialShare {
 
   private createSocial(service: SupportedSocialService, url: string, text = 'I’m hosting a webinar!') {
     let link: string = '';
-    const encodedUrl = encodeURIComponent(url);
 
     switch (service) {
       case 'twitter':
-        link = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${text}`;
+        link = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
         break;
       case 'facebook':
-        link = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+        link = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
         break;
       case 'linkedin':
-        link = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+        link = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
         break;
       case 'pinterest':
-        link = `https://pinterest.com/pin/create/button/?url=${encodedUrl}`;
+        link = `https://pinterest.com/pin/create/button/?url=${url}`;
         break;
       case 'google-plus':
-        link = `https://plus.google.com/share?url=${encodedUrl}`;
+        link = `https://plus.google.com/share?url=${url}`;
         break;
       case 'instagram':
         link = `https://www.instagram.com/direct/new/`;
